@@ -1,0 +1,49 @@
+
+
+
+
+<div class="container mx-auto mt-20 p-6 bg-gray-800 text-white rounded drop-shadow-2Xl opacity-100 w-96">
+  <div class="flex justify-center mb-6">
+   
+  </div>
+
+  <div *ngIf="showLogin">
+    <h2 class="text-2xl mb-6">Login</h2>
+    <form (ngSubmit)="login()">
+      <div class="mb-4">
+        <label for="username" class="block mb-1">Username:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="username" class="w-full p-2  rounded bg-gray-900 border border-gray-700" required>
+      </div>
+      <div class="mb-6">
+        <label for="password" class="block mb-1">Password:</label>
+        <input type="password" id="password" name="password" [(ngModel)]="password" class="w-full p-2 rounded bg-gray-900 border border-gray-700" required>
+      </div>
+      <button type="submit" class="w-full py-2 bg-red-500 hover:bg-red-600 rounded">Login</button>
+    
+    </form>
+    <button class=" py-2 px-4 ml-52 text-xs rounded-3xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-white  font-bold hover:underline hover:text-blue-500 duration-300 flex items-end" (click)="toggleForm(false)"><span >Register here </span><i class="fa-solid fa-arrow-right mb-1 ml-1"></i></button>
+  </div>
+
+  <div [ngClass]="{'transform rotate-y-180': showLogin}" *ngIf="!showLogin">
+    <h2 class="text-2xl mb-6">Register</h2>
+    <form (ngSubmit)="register()">
+      <div class="mb-4">
+        <label for="username" class="block mb-1">Username:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="username" class="w-full p-2 rounded bg-gray-900 border border-gray-700" required>
+      </div>
+      <div class="mb-4">
+        <label for="password" class="block mb-1">Password:</label>
+        <input type="password" id="password" name="password" [(ngModel)]="password" class="w-full p-2 rounded bg-gray-900 border border-gray-700" required>
+      </div>
+      <div class="mb-6">
+        <label for="email" class="block mb-1">Email:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="email" class="w-full p-2 rounded bg-gray-900 border border-gray-700" required>
+      </div>
+      <button type="submit" class="w-full py-2 bg-red-500 hover:bg-red-600 rounded">Register</button>
+      <button class="py-2 px-4 ml-56 text-xs rounded-3xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-white  font-bold hover:underline hover:text-blue-500 duration-300 flex items-end" (click)="toggleForm(true)"><span >Login here </span><i class="fa-solid fa-arrow-right mb-1 ml-1"></i></button>
+    
+    </form>
+  </div>
+</div>
+
+
